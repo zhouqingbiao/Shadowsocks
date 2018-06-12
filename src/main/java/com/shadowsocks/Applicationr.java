@@ -16,13 +16,13 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import com.alibaba.fastjson.JSON;
-import com.shadowsocks.entity.Configs;
-import com.shadowsocks.entity.Gui;
+import com.shadowsocks.entity.r.Configs;
+import com.shadowsocks.entity.r.Gui;
 
-public class Application {
+public class Applicationr {
 	public static void main(String[] args) {
 		json(html());
-		System.out.println("Shadowsocks");
+		System.out.println("ShadowsocksR");
 	}
 
 	/**
@@ -33,7 +33,7 @@ public class Application {
 	public static void json(List<Configs> list) {
 
 		// json文件路径
-		File file = new File("C:" + File.separator + "Shadowsocks" + File.separator + "gui-config.json");
+		File file = new File("C:" + File.separator + "ShadowsocksR-win-4.9.0" + File.separator + "gui-config.json");
 
 		// 字符集
 		String encoding = "UTF-8";
@@ -162,6 +162,7 @@ public class Application {
 						configs.setServer_port(Integer.parseInt(Port));
 						configs.setPassword(Password);
 						configs.setMethod(Method);
+						configs.setGroup("https://free-ss.site/");
 
 						// 添加到Configs列表
 						list.add(configs);
@@ -169,6 +170,21 @@ public class Application {
 				}
 			}
 		}
+
+		// 定义Configs类并添加内容--VONCOP
+		Configs configs = new Configs();
+		configs.setRemarks("美国BudgetVM");
+		configs.setServer("us.vonc.tk");
+		configs.setServer_port(28579);
+		configs.setPassword("zhouqingbiao");
+		configs.setMethod("aes-256-cfb");
+		configs.setProtocol("auth_sha1_v4");
+		configs.setObfs("tls1.2_ticket_auth");
+		configs.setGroup("VONCOP");
+
+		// 添加到Configs列表--VONCOP
+		list.add(configs);
+
 		return list;
 	}
 }
