@@ -31,7 +31,7 @@ public class Gui {
         this.sameHostForSameTarget = false;
         this.keepVisitTime = 180;
         this.isHideTips = false;
-        this.nodeFeedAutoUpdate = true;
+        this.nodeFeedAutoUpdate = false;
     }
 
     private List<Configs> configs;
@@ -63,7 +63,7 @@ public class Gui {
     private Integer keepVisitTime;
     private boolean isHideTips;
     private boolean nodeFeedAutoUpdate;
-    private List<Object> serverSubscribes;
+    private List<ServerSubscribes> serverSubscribes;
     private List<Object> token;
     private List<Object> portMap;
 
@@ -159,8 +159,8 @@ public class Gui {
         return TTL;
     }
 
-    public void setTTL(Integer tTL) {
-        TTL = tTL;
+    public void setTTL(Integer TTL) {
+        this.TTL = TTL;
     }
 
     public Integer getConnectTimeout() {
@@ -287,8 +287,8 @@ public class Gui {
         return isHideTips;
     }
 
-    public void setHideTips(boolean isHideTips) {
-        this.isHideTips = isHideTips;
+    public void setHideTips(boolean hideTips) {
+        isHideTips = hideTips;
     }
 
     public boolean isNodeFeedAutoUpdate() {
@@ -299,11 +299,11 @@ public class Gui {
         this.nodeFeedAutoUpdate = nodeFeedAutoUpdate;
     }
 
-    public List<Object> getServerSubscribes() {
+    public List<ServerSubscribes> getServerSubscribes() {
         return serverSubscribes;
     }
 
-    public void setServerSubscribes(List<Object> serverSubscribes) {
+    public void setServerSubscribes(List<ServerSubscribes> serverSubscribes) {
         this.serverSubscribes = serverSubscribes;
     }
 
