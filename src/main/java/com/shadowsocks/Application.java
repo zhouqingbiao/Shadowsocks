@@ -88,88 +88,99 @@ public class Application {
             e.printStackTrace();
         }
 
-        // 获取ID为main的div标签
-        Element div_main = doc.getElementsByClass("main").first();
+        // 获取table标签
+        Elements tables = doc.getElementsByTag("table");
 
-        // 获取最后一个class为dataTables_wrapper dt-foundation no-footer的div标签
-        Element div_table = div_main.getElementsByClass("dataTables_wrapper dt-foundation no-footer").last();
+        //遍历table标签
+        for (int i = 0; i < tables.size(); i++) {
 
-        // 获取第一个<thead>标签内容中的<th>标签内容
-        Elements ths = div_table.getElementsByTag("thead").first().getElementsByTag("th");
+            // 获取thead标签
+            Elements theads = tables.get(i).getElementsByTag("thead");
 
-        // 定义config键值对属性用来存储属性的顺序
-        Map<String, Integer> config = new HashMap<String, Integer>();
+            // 获取tbody标签
+            Elements tbodys = tables.get(i).getElementsByTag("tbody");
 
-        // 判断属性顺序并存储
-        for (int i = 0; i < ths.size(); i++) {
-            if (ths.get(i).text().equals("V/T/U/M")) {
-                config.put("V/T/U/M", i);
-            }
-            if (ths.get(i).text().equals("Address")) {
-                config.put("Address", i);
-            }
-            if (ths.get(i).text().equals("Port")) {
-                config.put("Port", i);
-            }
-            if (ths.get(i).text().equals("Method")) {
-                config.put("Method", i);
-            }
-            if (ths.get(i).text().equals("Password")) {
-                config.put("Password", i);
-            }
-        }
+            // 遍历thead标签
+            for (int j = 0; j < theads.size(); j++) {
 
-        // 获取<tbody>标签内容
-        Elements tbodys = div_table.getElementsByTag("tbody");
+                // 获取th标签
+                Elements ths = theads.get(j).getElementsByTag("th");
 
-        // 遍历<tbody>标签内容
-        for (int i = 0; i < tbodys.size(); i++) {
+                //Map
+                Map<String, Integer> th = new HashMap<>();
 
-            // 获取<tr>标签内容
-            Elements trs = tbodys.get(i).getElementsByTag("tr");
-
-            // 遍历<tr>标签内容
-            for (Element tr : trs) {
-
-                // 获取<td>标签内容
-                Elements tds = tr.getElementsByTag("td");
-
-                // VTUM标识码
-                boolean VTUM = true;
-
-                // 第一个<td>按照/分割生成VTUM
-                String[] separators = tds.get(0).text().split("/");
-
-                // 遍历separators内容
-                for (String separator : separators) {
-
-                    // VTUM不等于10就跳出<td>标签循环
-                    if (!separator.equals("10")) {
-                        VTUM = false;
-                        break;
+                // 获取text位置
+                for (int k = 0; k < ths.size(); k++) {
+                    if (ths.get(k).text().equals("V/T/U/M")) {
+                        th.put("V/T/U/M", k);
+                    }
+                    if (ths.get(k).text().equals("Address")) {
+                        th.put("Address", k);
+                    }
+                    if (ths.get(k).text().equals("Port")) {
+                        th.put("Port", k);
+                    }
+                    if (ths.get(k).text().equals("Password")) {
+                        th.put("Password", k);
+                    }
+                    if (ths.get(k).text().equals("Method")) {
+                        th.put("Method", k);
                     }
                 }
 
-                // VTUM都等于10则添加到Configs列表
-                if (VTUM == true) {
+                // 判断是否存在V/T/U/M
+                if (th.get("V/T/U/M") != null) {
 
-                    // 获取第二个到第五个<td>标签内容
-                    String Address = tds.get(config.get("Address")).text();
-                    String Port = tds.get(config.get("Port")).text();
-                    String Method = tds.get(config.get("Method")).text();
-                    String Password = tds.get(config.get("Password")).text();
+                    //遍历tbody标签
+                    for (int k = 0; k < tbodys.size(); k++) {
 
-                    System.out.println(Address);
+                        // 获取tr标签
+                        Elements trs = tbodys.get(k).getElementsByTag("tr");
 
-                    // 定义Configs类并添加内容
-                    Configs configs = new Configs();
-                    configs.setServer(Address);
-                    configs.setServer_port(Integer.parseInt(Port));
-                    configs.setPassword(Password);
-                    configs.setMethod(Method);
+                        // 遍历tr标签
+                        for (int l = 0; l < trs.size(); l++) {
 
-                    // 添加到Configs列表
-                    list.add(configs);
+                            // 获取td标签
+                            Elements tds = trs.get(l).getElementsByTag("td");
+
+                            // VTUM标识码
+                            boolean VTUM = true;
+
+                            // 分割VTUM
+                            String[] splits = tds.get(th.get("V/T/U/M")).text().split("/");
+
+                            // 遍历V/T/U/M内容
+                            split:
+                            for (String split : splits) {
+
+                                // VTUM其中有一个不等于10就跳出split循环
+                                if (!split.equals("10")) {
+                                    VTUM = false;
+                                    break split;
+                                }
+                            }
+
+                            // VTUM为true时添加到列表中
+                            if (VTUM == true) {
+                                String Address = tds.get(th.get("Address")).text();
+                                String Port = tds.get(th.get("Port")).text();
+                                String Method = tds.get(th.get("Method")).text();
+                                String Password = tds.get(th.get("Password")).text();
+
+                                System.out.println(Address);
+
+                                // 定义Configs类并添加内容
+                                Configs configs = new Configs();
+                                configs.setServer(Address);
+                                configs.setServer_port(Integer.parseInt(Port));
+                                configs.setPassword(Password);
+                                configs.setMethod(Method);
+
+                                // 添加到Configs列表
+                                list.add(configs);
+                            }
+                        }
+                    }
                 }
             }
         }
