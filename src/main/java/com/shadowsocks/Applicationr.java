@@ -174,22 +174,6 @@ public class Applicationr {
                 }
             }
         }
-
-        // 定义Configs类并添加内容--VONCOP
-        Configs configs = new Configs();
-        configs.setRemarks("美国BudgetVM");
-        configs.setServer("us.vonc.tk");
-        configs.setServer_port(28579);
-        configs.setPassword("zhouqingbiao");
-        configs.setMethod("aes-256-cfb");
-        configs.setProtocol("auth_sha1_v4");
-        configs.setObfs("tls1.2_ticket_auth");
-        configs.setRemarks_base64("576O5Zu9QnVkZ2V0Vk0");
-        configs.setGroup("VONCOP");
-
-        // 添加到Configs列表--VONCOP
-        list.add(configs);
-
         return list;
     }
 }

@@ -63,7 +63,7 @@ public class Gui {
     private Integer keepVisitTime;
     private boolean isHideTips;
     private boolean nodeFeedAutoUpdate;
-    private List<ServerSubscribes> serverSubscribes;
+    private List<Object> serverSubscribes;
     private List<Object> token;
     private List<Object> portMap;
 
@@ -299,11 +299,11 @@ public class Gui {
         this.nodeFeedAutoUpdate = nodeFeedAutoUpdate;
     }
 
-    public List<ServerSubscribes> getServerSubscribes() {
+    public List<Object> getServerSubscribes() {
         return serverSubscribes;
     }
 
-    public void setServerSubscribes(List<ServerSubscribes> serverSubscribes) {
+    public void setServerSubscribes(List<Object> serverSubscribes) {
         this.serverSubscribes = serverSubscribes;
     }
 
