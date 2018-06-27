@@ -38,14 +38,14 @@ public class Gui {
 
     public Gui() {
         this.index = 0;
-        this.random = true;
+        this.random = false;
         this.sysProxyMode = 1;
         this.shareOverLan = false;
         this.localPort = 1080;
         this.localAuthPassword = "G5jVaD2mi_bAxAvIoKdp";
         this.dnsServer = "";
         this.reconnectTimes = 2;
-        this.balanceAlgorithm = "LowException";
+        this.balanceAlgorithm = "Random";
         this.randomInGroup = false;
         this.TTL = 0;
         this.connectTimeout = 5;

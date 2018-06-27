@@ -23,10 +23,10 @@ public class Gui {
     private Hotkey hotkey;
 
     public Gui() {
-        this.strategy = "com.shadowsocks.strategy.balancing";
-        this.index = -1;
+        this.strategy = null;
+        this.index = 0;
         this.global = false;
-        this.enabled = true;
+        this.enabled = false;
         this.shareOverLan = false;
         this.isDefault = false;
         this.localPort = 1080;

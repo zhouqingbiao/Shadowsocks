@@ -30,7 +30,7 @@ public class Applicationr {
     public static void json(List<Configs> list) {
 
         // json文件路径
-        File file = new File("C:" + File.separator + "ShadowsocksR-win-4.9.0" + File.separator + "gui-config.json");
+        File file = new File("C:" + File.separator + "ShadowsocksR" + File.separator + "gui-config.json");
 
         // 字符集
         String encoding = "UTF-8";
