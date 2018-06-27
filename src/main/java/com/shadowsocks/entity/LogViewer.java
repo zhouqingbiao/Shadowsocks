@@ -1,6 +1,13 @@
 package com.shadowsocks.entity;
 
 public class LogViewer {
+    private boolean topMost;
+    private boolean wrapText;
+    private boolean toolbarShown;
+    private String Font;
+    private String BackgroundColor;
+    private String TextColor;
+
     public LogViewer() {
         this.topMost = false;
         this.wrapText = false;
@@ -9,13 +16,6 @@ public class LogViewer {
         this.BackgroundColor = "Black";
         this.TextColor = "White";
     }
-
-    private boolean topMost;
-    private boolean wrapText;
-    private boolean toolbarShown;
-    private String Font;
-    private String BackgroundColor;
-    private String TextColor;
 
     public boolean isTopMost() {
         return topMost;

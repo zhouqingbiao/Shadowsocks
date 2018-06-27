@@ -1,23 +1,20 @@
 package com.shadowsocks;
 
+import com.alibaba.fastjson.JSON;
+import com.shadowsocks.entity.Configs;
+import com.shadowsocks.entity.Gui;
+import org.apache.commons.io.FileUtils;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
+
+import javax.swing.filechooser.FileSystemView;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import javax.swing.filechooser.FileSystemView;
-
-import org.apache.commons.io.FileUtils;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
-
-import com.alibaba.fastjson.JSON;
-import com.shadowsocks.entity.Configs;
-import com.shadowsocks.entity.Gui;
 
 public class Application {
     public static void main(String[] args) {

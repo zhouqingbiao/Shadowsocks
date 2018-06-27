@@ -1,14 +1,6 @@
 package com.shadowsocks.entity;
 
 public class Configs {
-    public Configs() {
-        this.plugin = "";
-        this.plugin_opts = "";
-        this.plugin_args = "";
-        this.remarks = "";
-        this.timeout = 5;
-    }
-
     private String server;
     private Integer server_port;
     private String password;
@@ -18,6 +10,14 @@ public class Configs {
     private String plugin_args;
     private String remarks;
     private Integer timeout;
+
+    public Configs() {
+        this.plugin = "";
+        this.plugin_opts = "";
+        this.plugin_args = "";
+        this.remarks = "";
+        this.timeout = 5;
+    }
 
     public String getServer() {
         return server;

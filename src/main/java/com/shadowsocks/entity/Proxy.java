@@ -1,6 +1,12 @@
 package com.shadowsocks.entity;
 
 public class Proxy {
+    private boolean useProxy;
+    private Integer proxyType;
+    private String proxyServer;
+    private Integer proxyPort;
+    private Integer proxyTimeout;
+
     public Proxy() {
         this.useProxy = false;
         this.proxyType = 0;
@@ -8,12 +14,6 @@ public class Proxy {
         this.proxyPort = 0;
         this.proxyTimeout = 3;
     }
-
-    private boolean useProxy;
-    private Integer proxyType;
-    private String proxyServer;
-    private Integer proxyPort;
-    private Integer proxyTimeout;
 
     public boolean isUseProxy() {
         return useProxy;

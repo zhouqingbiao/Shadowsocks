@@ -1,23 +1,20 @@
 package com.shadowsocks;
 
+import com.alibaba.fastjson.JSON;
+import com.shadowsocks.entity.r.Configs;
+import com.shadowsocks.entity.r.Gui;
+import org.apache.commons.io.FileUtils;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
+
+import javax.swing.filechooser.FileSystemView;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import javax.swing.filechooser.FileSystemView;
-
-import org.apache.commons.io.FileUtils;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
-
-import com.alibaba.fastjson.JSON;
-import com.shadowsocks.entity.r.Configs;
-import com.shadowsocks.entity.r.Gui;
 
 public class Applicationr {
     public static void main(String[] args) {
@@ -51,17 +48,15 @@ public class Applicationr {
         // 反序列化json类
         Gui gui = JSON.parseObject(text, Gui.class);
 
-        //去除旧的https://free-ss.site/配置
+        // 添加非https://free-ss.site/配置到List中
         for (int i = 0; i < gui.getConfigs().size(); i++) {
-            if (gui.getConfigs().get(i).getGroup().equals("https://free-ss.site/")) {
-                gui.getConfigs().remove(i);
+            if (!gui.getConfigs().get(i).getGroup().equals("https://free-ss.site/")) {
+                list.add(gui.getConfigs().get(i));
             }
         }
 
-        // 添加新的https://free-ss.site/配置
-        for (int i = 0; i < list.size(); i++) {
-            gui.getConfigs().add(list.get(i));
-        }
+        // 设置配置
+        gui.setConfigs(list);
 
         // 序列化json类
         String data = JSON.toJSONString(gui);

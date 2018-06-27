@@ -1,20 +1,6 @@
 package com.shadowsocks.entity.r;
 
 public class Configs {
-    public Configs() {
-        this.remarks = "";
-        this.id = "";
-        this.server_udp_port = 0;
-        this.protocol = "origin";
-        this.protocolparam = "";
-        this.obfs = "plain";
-        this.obfsparam = "";
-        this.remarks_base64 = "";
-        this.group = "";
-        this.enable = true;
-        this.udp_over_tcp = false;
-    }
-
     private String remarks;
     private String id;
     private String server;
@@ -30,6 +16,20 @@ public class Configs {
     private String group;
     private boolean enable;
     private boolean udp_over_tcp;
+
+    public Configs() {
+        this.remarks = "";
+        this.id = "";
+        this.server_udp_port = 0;
+        this.protocol = "origin";
+        this.protocolparam = "";
+        this.obfs = "plain";
+        this.obfsparam = "";
+        this.remarks_base64 = "";
+        this.group = "";
+        this.enable = true;
+        this.udp_over_tcp = false;
+    }
 
     public String getRemarks() {
         return remarks;

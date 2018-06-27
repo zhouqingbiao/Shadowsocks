@@ -3,37 +3,6 @@ package com.shadowsocks.entity.r;
 import java.util.List;
 
 public class Gui {
-    public Gui() {
-        this.index = 0;
-        this.random = true;
-        this.sysProxyMode = 1;
-        this.shareOverLan = false;
-        this.localPort = 1080;
-        this.localAuthPassword = "G5jVaD2mi_bAxAvIoKdp";
-        this.dnsServer = "";
-        this.reconnectTimes = 2;
-        this.balanceAlgorithm = "LowException";
-        this.randomInGroup = false;
-        this.TTL = 0;
-        this.connectTimeout = 5;
-        this.proxyRuleMode = 2;
-        this.proxyEnable = false;
-        this.pacDirectGoProxy = false;
-        this.proxyType = 0;
-        this.proxyHost = "";
-        this.proxyPort = 0;
-        this.proxyAuthUser = "";
-        this.proxyAuthPass = "";
-        this.proxyUserAgent = "";
-        this.authUser = "";
-        this.authPass = "";
-        this.autoBan = false;
-        this.sameHostForSameTarget = false;
-        this.keepVisitTime = 180;
-        this.isHideTips = false;
-        this.nodeFeedAutoUpdate = false;
-    }
-
     private List<Configs> configs;
     private Integer index;
     private boolean random;
@@ -66,6 +35,37 @@ public class Gui {
     private List<Object> serverSubscribes;
     private List<Object> token;
     private List<Object> portMap;
+
+    public Gui() {
+        this.index = 0;
+        this.random = true;
+        this.sysProxyMode = 1;
+        this.shareOverLan = false;
+        this.localPort = 1080;
+        this.localAuthPassword = "G5jVaD2mi_bAxAvIoKdp";
+        this.dnsServer = "";
+        this.reconnectTimes = 2;
+        this.balanceAlgorithm = "LowException";
+        this.randomInGroup = false;
+        this.TTL = 0;
+        this.connectTimeout = 5;
+        this.proxyRuleMode = 2;
+        this.proxyEnable = false;
+        this.pacDirectGoProxy = false;
+        this.proxyType = 0;
+        this.proxyHost = "";
+        this.proxyPort = 0;
+        this.proxyAuthUser = "";
+        this.proxyAuthPass = "";
+        this.proxyUserAgent = "";
+        this.authUser = "";
+        this.authPass = "";
+        this.autoBan = false;
+        this.sameHostForSameTarget = false;
+        this.keepVisitTime = 180;
+        this.isHideTips = false;
+        this.nodeFeedAutoUpdate = false;
+    }
 
     public List<Configs> getConfigs() {
         return configs;

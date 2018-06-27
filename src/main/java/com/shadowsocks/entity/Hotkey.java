@@ -1,6 +1,13 @@
 package com.shadowsocks.entity;
 
 public class Hotkey {
+    private String SwitchSystemProxy;
+    private String SwitchSystemProxyMode;
+    private String SwitchAllowLan;
+    private String ShowLogs;
+    private String ServerMoveUp;
+    private String ServerMoveDown;
+
     public Hotkey() {
         this.SwitchSystemProxy = "";
         this.SwitchSystemProxyMode = "";
@@ -9,13 +16,6 @@ public class Hotkey {
         this.ServerMoveUp = "";
         this.ServerMoveDown = "";
     }
-
-    private String SwitchSystemProxy;
-    private String SwitchSystemProxyMode;
-    private String SwitchAllowLan;
-    private String ShowLogs;
-    private String ServerMoveUp;
-    private String ServerMoveDown;
 
     public String getSwitchSystemProxy() {
         return SwitchSystemProxy;

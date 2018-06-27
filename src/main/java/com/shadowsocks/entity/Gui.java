@@ -3,23 +3,6 @@ package com.shadowsocks.entity;
 import java.util.List;
 
 public class Gui {
-    public Gui() {
-        this.strategy = "com.shadowsocks.strategy.balancing";
-        this.index = -1;
-        this.global = false;
-        this.enabled = true;
-        this.shareOverLan = false;
-        this.isDefault = false;
-        this.localPort = 1080;
-        this.pacUrl = null;
-        this.useOnlinePac = false;
-        this.secureLocalPac = false;
-        this.availabilityStatistics = false;
-        this.autoCheckUpdate = true;
-        this.checkPreRelease = false;
-        this.isVerboseLogging = true;
-    }
-
     private List<Configs> configs;
     private String strategy;
     private Integer index;
@@ -38,6 +21,23 @@ public class Gui {
     private LogViewer logViewer;
     private Proxy proxy;
     private Hotkey hotkey;
+
+    public Gui() {
+        this.strategy = "com.shadowsocks.strategy.balancing";
+        this.index = -1;
+        this.global = false;
+        this.enabled = true;
+        this.shareOverLan = false;
+        this.isDefault = false;
+        this.localPort = 1080;
+        this.pacUrl = null;
+        this.useOnlinePac = false;
+        this.secureLocalPac = false;
+        this.availabilityStatistics = false;
+        this.autoCheckUpdate = true;
+        this.checkPreRelease = false;
+        this.isVerboseLogging = true;
+    }
 
     public List<Configs> getConfigs() {
         return configs;
