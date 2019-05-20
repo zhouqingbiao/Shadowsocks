@@ -111,7 +111,7 @@ public class Applicationr {
                 Elements ths = theads.get(j).getElementsByTag("th");
 
                 //Map
-                Map<String, Integer> th = new HashMap<>();
+                Map<String, Integer> th = new HashMap<String, Integer>();
 
                 // 获取text位置
                 for (int k = 0; k < ths.size(); k++) {
